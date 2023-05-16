@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{{post.title_tag}}{% endblock %}</title>
+    </head>
+    <body>
+    
+        {% block content %}
+
+        <h1>{{post.title}}</h1>
+        <small>BY: {{post.author.first_name}} {{post.author.last_name}} &nbsp; &nbsp; {{post.post_date}}   <a href="{% url 'update-post' post.pk %}" class="btn btn-primary">Edit</a>-
+            <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a></small>
+        <hr>
+        <br/>
+        {{post.body|safe}}
+
+        <br/><br/>
+        <a href="{% url 'home' %}" class="btn btn-dark">BACK</a>
+        {% endblock %}
+    </body>
+</html>

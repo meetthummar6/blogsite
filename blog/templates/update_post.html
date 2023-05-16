@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} EDIT BLOG POST{% endblock %}</title>
+</head>
+<body>
+    
+{% block content %}
+{% if user.is_authenticated %}
+<h1>UPDATE BLOG POST</h1>
+<br/>
+<div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-success">Update</button>
+    </form>
+</div>
+{% else %}
+Hey you cant access this
+{% endif %}
+{% endblock %}
+</body>
+</html>
