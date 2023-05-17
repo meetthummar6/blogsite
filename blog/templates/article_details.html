@@ -11,8 +11,9 @@
     
         {% block content %}
 
-        <h1>{{post.title}}</h1>
-        <small>BY: {{post.author.first_name}} {{post.author.last_name}} &nbsp; &nbsp; {{post.post_date}}   <a href="{% url 'update-post' post.pk %}" class="btn btn-primary">Edit</a>-
+        <h1>{{post.title}} <small>--<a href="{% url 'category' post.category %}" class="link-body-primary link-offset-2 link-underline link-underline-opacity-0">{{post.category}}</a></small></h1>
+    
+        <small>BY: {{post.author.first_name}} {{post.author.last_name}} &nbsp; &nbsp; {{post.post_date}}   <a href="{% url 'update-post' post.pk|slugify %}" class="btn btn-primary">Edit</a>-
             <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a></small>
         <hr>
         <br/>

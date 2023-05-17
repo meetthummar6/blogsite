@@ -39,3 +39,7 @@ class AddCategoryView(CreateView):
     # form_class=PostForm
     template_name='add_category.html'
     fields='__all__'
+
+def CategoryView(request,cats):
+    category_posts=Post.objects.filter(category=cats.replace('-',' '))
+    return render(request,'category.html',{'cats':cats.replace('-',' '),'cat_post':category_posts})
