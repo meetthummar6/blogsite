@@ -11,6 +11,7 @@
     
 {% block content %}
 {% if user.is_authenticated %}
+{% if user.id==post.author.id %}
 <h1>UPDATE BLOG POST</h1>
 <br/>
 <div class="form-group">
@@ -20,6 +21,7 @@
         <button type="submit" class="btn btn-success">Update</button>
     </form>
 </div>
+{% endif %}
 {% else %}
 Hey you cant access this
 {% endif %}
