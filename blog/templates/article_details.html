@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}{{post.title_tag}}{% endblock %}</title>
+        <!-- <script src="https://kit.fontawesome.com/e22171f175.js" crossorigin="anonymous"></script> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
     
@@ -32,9 +34,9 @@
         <form action="{% url 'like_post' post.pk %}" method="post">
             {% csrf_token %}
             {% if liked %}
-                <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-danger">&#xF417; Unlike</button>
+                <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-danger" style="font-size: 24px;" ><span style="color:white;">&hearts;</span> Unlike</button>
                 {% else %}
-                <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-primary">&#xF415; Like</button>
+                <button type="submit" name="post_id" value="{{post.id}}" class="btn btn-primary" style="font-size: 24px;"><span style="color: white;">&hearts;</span> Like</button>
             {% endif %}
         </form>
         {% else %}
