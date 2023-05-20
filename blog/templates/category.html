@@ -18,8 +18,10 @@
 <h3><a href="{% url 'article-detail' post.pk %}" class="link-body-emphasis  link-offset-2 link-underline link-underline-opacity-0">{{post.title}}</a>
     </h3> By: {{post.author.first_name}} {{post.author.last_name}} &nbsp; &nbsp; {{post.post_date}}
     {% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
     <a href="{% url 'update-post' post.pk %}" class="btn btn-primary">Edit</a>-
     <a href="{% url 'delete-post' post.pk %}" class="btn btn-danger">Delete</a>
+    {% endif %}
     {% endif %}
     <br/>
     {{post.body|slice:":250"|safe}}

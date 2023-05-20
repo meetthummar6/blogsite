@@ -11,7 +11,7 @@
     
 {% block content %}
 {% if user.is_authenticated %}
-{% if user.id==post.author.id %}
+{% if user.id == Post.author.id %}
 <h1>UPDATE BLOG POST</h1>
 <br/>
 <div class="form-group">
